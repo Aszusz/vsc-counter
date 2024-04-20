@@ -1,14 +1,12 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { ShellType, createShell } from '@/shell/shell'
-import { State } from '@/core/state'
+import { initialState } from '@/core/state'
 import { useHookValue } from './utils'
 
 describe('createShell', () => {
   let shell: ShellType
-  let initialState: State
 
   beforeEach(() => {
-    initialState = { count: 0 }
     shell = createShell(initialState)
     vi.spyOn(console, 'log')
   })
