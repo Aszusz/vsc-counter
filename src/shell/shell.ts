@@ -1,6 +1,6 @@
 import { create } from 'zustand'
-import { State } from './state'
-import { randomDelay } from './effects'
+import { State } from '@/shell/state'
+import { randomDelay } from '@/shell/effects'
 
 export const createShell = (initialState: State) => {
   const useStore = create<State>()(() => initialState)

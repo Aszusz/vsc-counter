@@ -1,4 +1,4 @@
-import { Counter } from './view/component/counter'
+import { Counter } from './component/counter'
 
 function App() {
   return (
