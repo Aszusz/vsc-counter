@@ -5,3 +5,5 @@ Template Project
 - React
 - Prettier
 - ESLint
+- TailwindCSS
+- Shadcn/ui
