@@ -1,4 +1,4 @@
-import { Button } from './view/ui/button'
+import { Button } from '@/view/ui/button'
 
 function App() {
   return (
