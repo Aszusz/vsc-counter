@@ -1,6 +1,7 @@
 import { create } from 'zustand'
-import { State } from '@/shell/state'
+import { State } from '@/core/state'
 import { randomDelay } from '@/shell/effects'
+import { decrement, increment } from '@/core/core'
 
 export const createShell = (initialState: State) => {
   const useStore = create<State>()(() => initialState)
@@ -11,27 +12,29 @@ export const createShell = (initialState: State) => {
 
   const thunks = {
     increment: () => {
-      console.log(`view/increment`)
-      useStore.setState(state => ({ count: state.count + 1 }))
+      console.log(`shell/increment`)
+      console.log(`core/increment: 1`)
+      useStore.setState(increment(1))
     },
 
     decrement: () => {
-      console.log(`view/decrement`)
-      useStore.setState(state => ({ count: state.count - 1 }))
+      console.log(`shell/decrement`)
+      console.log(`core/decrement: 1`)
+      useStore.setState(decrement(1))
     },
 
-    incrementAsync: async () => {
-      console.log(`view/incrementAsync`)
+    incrementRandom: async () => {
+      console.log(`shell/incrementRandom`)
       const number = await randomDelay(5, 10)
-      console.log(`shell/incrementAsync: ${number}`)
-      useStore.setState(state => ({ count: state.count + number }))
+      console.log(`core/increment: ${number}`)
+      useStore.setState(increment(number))
     },
 
-    decrementAsync: async () => {
-      console.log(`view/decrementAsync`)
+    decrementRandom: async () => {
+      console.log(`shell/decrementRandom`)
       const number = await randomDelay(5, 10)
-      console.log(`shell/decrementAsync: ${number}`)
-      useStore.setState(state => ({ count: state.count - number }))
+      console.log(`core/decrement: ${number}`)
+      useStore.setState(decrement(number))
     }
   }
 

@@ -2,7 +2,7 @@ import React, { createContext } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from '@/view/App'
 import '@/view/index.css'
-import { initialState } from '@/shell/state'
+import { initialState } from '@/core/state'
 import { createShell } from '@/shell/shell'
 
 const shell = createShell(initialState)

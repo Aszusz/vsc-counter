@@ -26,8 +26,8 @@ export function Counter() {
   const count = hooks.useCount()
   const increment = thunks.increment
   const decrement = thunks.decrement
-  const incrementAsync = thunks.incrementAsync
-  const decrementAsync = thunks.decrementAsync
+  const incrementAsync = thunks.incrementRandom
+  const decrementAsync = thunks.decrementRandom
 
   return (
     <Card className='mx-auto w-full max-w-md'>

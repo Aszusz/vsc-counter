@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { ShellType, createShell } from '@/shell/shell'
-import { State } from '@/shell/state'
+import { State } from '@/core/state'
 import { useHookValue } from './utils'
 
 describe('createShell', () => {
@@ -26,13 +26,13 @@ describe('createShell', () => {
   })
 
   it('should increment the count asynchronously', async () => {
-    await shell.thunks.incrementAsync()
+    await shell.thunks.incrementRandom()
     const count = useHookValue(() => shell.hooks.useCount())
     expect(count).toBeGreaterThanOrEqual(5)
   })
 
   it('should decrement the count asynchronously', async () => {
-    await shell.thunks.decrementAsync()
+    await shell.thunks.decrementRandom()
     const count = useHookValue(() => shell.hooks.useCount())
     expect(count).toBeLessThanOrEqual(5)
   })
