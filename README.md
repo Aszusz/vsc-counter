@@ -4,3 +4,4 @@ Template Project
 - TypeScript
 - React
 - Prettier
+- ESLint
