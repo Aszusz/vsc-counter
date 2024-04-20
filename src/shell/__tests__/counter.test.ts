@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { ShellType, createShell } from '@/shell/shell'
 import { State } from '@/shell/state'
-import { renderHook } from '@testing-library/react-hooks'
+import { useHookValue } from './utils'
 
 describe('createShell', () => {
   let shell: ShellType
@@ -15,25 +15,25 @@ describe('createShell', () => {
 
   it('should increment the count', () => {
     shell.thunks.increment()
-    const count = renderHook(() => shell.hooks.useCount()).result.current
+    const count = useHookValue(() => shell.hooks.useCount())
     expect(count).toBe(1)
   })
 
   it('should decrement the count', () => {
     shell.thunks.decrement()
-    const count = renderHook(() => shell.hooks.useCount()).result.current
+    const count = useHookValue(() => shell.hooks.useCount())
     expect(count).toBe(-1)
   })
 
   it('should increment the count asynchronously', async () => {
     await shell.thunks.incrementAsync()
-    const count = renderHook(() => shell.hooks.useCount()).result.current
+    const count = useHookValue(() => shell.hooks.useCount())
     expect(count).toBeGreaterThanOrEqual(5)
   })
 
   it('should decrement the count asynchronously', async () => {
     await shell.thunks.decrementAsync()
-    const count = renderHook(() => shell.hooks.useCount()).result.current
+    const count = useHookValue(() => shell.hooks.useCount())
     expect(count).toBeLessThanOrEqual(5)
   })
 })
