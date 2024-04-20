@@ -13,25 +13,24 @@ export const createShell = (initialState: State) => {
   const thunks = {
     increment: () => {
       console.log(`shell/increment`)
-      useStore.setState(increment(1))
+      useStore.setState(state => increment(state, 1))
     },
 
     decrement: () => {
       console.log(`shell/decrement`)
-      useStore.setState(decrement(1))
+      useStore.setState(state => decrement(state, 1))
     },
 
     incrementRandom: async () => {
       console.log(`shell/incrementRandom`)
       const number = await randomDelay(5, 10)
-
-      useStore.setState(increment(number))
+      useStore.setState(state => increment(state, number))
     },
 
     decrementRandom: async () => {
       console.log(`shell/decrementRandom`)
       const number = await randomDelay(5, 10)
-      useStore.setState(decrement(number))
+      useStore.setState(state => decrement(state, number))
     }
   }
 
