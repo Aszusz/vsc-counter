@@ -37,3 +37,5 @@ export const createShell = (initialState: State) => {
 
   return { hooks, thunks }
 }
+
+export type ShellType = ReturnType<typeof createShell>
