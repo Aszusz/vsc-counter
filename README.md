@@ -7,3 +7,4 @@ Template Project
 - ESLint
 - TailwindCSS
 - Shadcn/ui
+- Zustand

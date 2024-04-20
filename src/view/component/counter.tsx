@@ -17,28 +17,36 @@ To read more about using these font, please visit the Next.js documentation:
 - App Directory: https://nextjs.org/docs/app/building-your-application/optimizing/fonts
 - Pages Directory: https://nextjs.org/docs/pages/building-your-application/optimizing/fonts
 **/
+import { useShell } from '@/shell/hook'
 import { Button } from '@/view/ui/button'
 import { CardContent, Card } from '@/view/ui/card'
 
 export function Counter() {
+  const { hooks, thunks } = useShell()
+  const count = hooks.useCount()
+  const increment = thunks.increment
+  const decrement = thunks.decrement
+  const incrementAsync = thunks.incrementAsync
+  const decrementAsync = thunks.decrementAsync
+
   return (
     <Card className='mx-auto w-full max-w-md'>
       <CardContent className='flex flex-col items-center justify-center gap-6 p-8'>
-        <div className='text-6xl font-bold'>42</div>
+        <div className='text-6xl font-bold'>{count}</div>
         <div className='grid grid-cols-2 gap-4'>
-          <Button variant='outline'>
+          <Button variant='outline' onClick={() => decrement()}>
             <MinusIcon className='h-5 w-5' />
             Decrement
           </Button>
-          <Button variant='outline'>
+          <Button variant='outline' onClick={() => increment()}>
             <PlusIcon className='h-5 w-5' />
             Increment
           </Button>
-          <Button variant='outline'>
+          <Button variant='outline' onClick={() => decrementAsync()}>
             <MinusIcon className='h-5 w-5' />
             Decrement Random
           </Button>
-          <Button variant='outline'>
+          <Button variant='outline' onClick={() => incrementAsync()}>
             <PlusIcon className='h-5 w-5' />
             Increment Random
           </Button>
