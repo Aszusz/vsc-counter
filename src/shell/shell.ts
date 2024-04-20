@@ -1,7 +1,7 @@
-import { create } from 'zustand'
+import { decrement, increment } from '@/core/core'
 import { State } from '@/core/state'
 import { randomDelay } from '@/shell/effects'
-import { decrement, increment } from '@/core/core'
+import { create } from 'zustand'
 
 export const createShell = (initialState: State) => {
   const useStore = create<State>()(() => initialState)

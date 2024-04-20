@@ -1,9 +1,9 @@
-import React, { createContext } from 'react'
-import ReactDOM from 'react-dom/client'
-import App from '@/view/App'
-import '@/view/index.css'
 import { initialState } from '@/core/state'
 import { createShell } from '@/shell/shell'
+import App from '@/view/App'
+import '@/view/index.css'
+import React, { createContext } from 'react'
+import ReactDOM from 'react-dom/client'
 
 const shell = createShell(initialState)
 export const ShellContext = createContext(shell)

@@ -1,7 +1,7 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { ShellType, createShell } from '@/shell/shell'
-import { initialState } from '@/core/state'
 import { useHookValue } from './utils'
+import { initialState } from '@/core/state'
+import { ShellType, createShell } from '@/shell/shell'
+import { describe, it, expect, vi, beforeEach } from 'vitest'
 
 describe('createShell', () => {
   let shell: ShellType

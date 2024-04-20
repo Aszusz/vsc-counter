@@ -1,6 +1,6 @@
-import { describe, it, expect, beforeEach } from 'vitest'
-import { initialState } from '@/core/state'
 import { decrement, increment } from '../core'
+import { initialState } from '@/core/state'
+import { describe, it, expect, beforeEach } from 'vitest'
 
 describe('core', () => {
   beforeEach(() => {})
