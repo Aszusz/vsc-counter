@@ -1,10 +1,9 @@
-import { Button } from '@/view/ui/button'
+import { Counter } from './view/component/counter'
 
 function App() {
   return (
-    <div>
-      <h1 className=''>Hello, world!</h1>
-      <Button variant={'default'}>Click me</Button>
+    <div className='pt-10'>
+      <Counter />
     </div>
   )
 }
