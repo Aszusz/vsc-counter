@@ -6,35 +6,33 @@ import { create } from 'zustand'
 export const createShell = (initialState: State) => {
   const useStore = create<State>()(() => initialState)
 
-  const hooks = {
-    useCount: () => useStore(state => state.count)
-  }
-
-  const thunks = {
-    increment: () => {
-      console.log(`shell/increment`)
-      useStore.setState(state => increment(state, 1))
+  return {
+    hooks: {
+      useCount: () => useStore(state => state.count)
     },
 
-    decrement: () => {
-      console.log(`shell/decrement`)
-      useStore.setState(state => decrement(state, 1))
-    },
+    thunks: {
+      async increment() {
+        console.log(`shell/increment`)
+        useStore.setState(state => increment(state, 1))
+      },
 
-    incrementRandom: async () => {
-      console.log(`shell/incrementRandom`)
-      const number = await randomDelay(5, 10)
-      useStore.setState(state => increment(state, number))
-    },
+      async decrement() {
+        console.log(`shell/decrement`)
+        useStore.setState(state => decrement(state, 1))
+      },
 
-    decrementRandom: async () => {
-      console.log(`shell/decrementRandom`)
-      const number = await randomDelay(5, 10)
-      useStore.setState(state => decrement(state, number))
+      async incrementRandom() {
+        console.log(`shell/incrementRandom`)
+        const number = await randomDelay(5, 10)
+        useStore.setState(state => increment(state, number))
+      },
+
+      async decrementRandom() {
+        console.log(`shell/decrementRandom`)
+        const number = await randomDelay(5, 10)
+        useStore.setState(state => decrement(state, number))
+      }
     }
   }
-
-  return { hooks, thunks }
 }
-
-export type ShellType = ReturnType<typeof createShell>

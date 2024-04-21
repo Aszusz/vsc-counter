@@ -2,7 +2,7 @@ import { decrement, increment } from '../core'
 import { initialState } from '@/core/state'
 import { describe, it, expect, beforeEach } from 'vitest'
 
-describe('core', () => {
+describe.concurrent('core', () => {
   beforeEach(() => {})
 
   it('core/increment', () => {
