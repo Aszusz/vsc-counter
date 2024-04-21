@@ -1,7 +1,8 @@
 import { State } from '@/core/state'
+import { log } from '@/lib/log'
 
 export function increment(state: State, by: number): State {
-  console.log(`core/increment: ${by}`)
+  log('core', 'increment', by)
   return {
     ...state,
     count: state.count + by
@@ -9,7 +10,7 @@ export function increment(state: State, by: number): State {
 }
 
 export function decrement(state: State, by: number): State {
-  console.log(`core/decrement: ${by}`)
+  log('core', 'decrement', by)
   return {
     ...state,
     count: state.count - by

@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/cn'
 import { buttonVariants } from '@/view/ui/variants'
 import { Slot } from '@radix-ui/react-slot'
 import { type VariantProps } from 'class-variance-authority'

@@ -1,4 +1,4 @@
-import { useHookValue } from './utils'
+import { useHookValue } from '../../lib/useHookValue'
 import { initialState } from '@/core/state'
 import { createShell } from '@/shell/shell'
 import { describe, it, expect } from 'vitest'

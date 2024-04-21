@@ -1,5 +1,6 @@
-import { decrement, increment } from '@/core/core'
+import * as core from '@/core/core'
 import { State } from '@/core/state'
+import { log } from '@/lib/log'
 import { randomDelay } from '@/shell/effects'
 import { create } from 'zustand'
 
@@ -13,25 +14,25 @@ export const createShell = (initialState: State) => {
 
     thunks: {
       async increment() {
-        console.log(`shell/increment`)
-        useStore.setState(state => increment(state, 1))
+        log('shell', 'increment')
+        useStore.setState(state => core.increment(state, 1))
       },
 
       async decrement() {
-        console.log(`shell/decrement`)
-        useStore.setState(state => decrement(state, 1))
+        log('shell', 'decrement')
+        useStore.setState(state => core.decrement(state, 1))
       },
 
       async incrementRandom() {
-        console.log(`shell/incrementRandom`)
+        log('shell', 'incrementRandom')
         const number = await randomDelay(5, 10)
-        useStore.setState(state => increment(state, number))
+        useStore.setState(state => core.increment(state, number))
       },
 
       async decrementRandom() {
-        console.log(`shell/decrementRandom`)
+        log('shell', 'decrementRandom')
         const number = await randomDelay(5, 10)
-        useStore.setState(state => decrement(state, number))
+        useStore.setState(state => core.decrement(state, number))
       }
     }
   }
